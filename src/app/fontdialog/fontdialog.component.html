@@ -1,0 +1,18 @@
+
+<div style="font-size: 26px;" [style.font-family]="selectedFont" >
+  <p>Welcome to ng-India</p>
+  <p>India's first Angular Conference</p>
+</div>
+
+<button cdkOverlayOrigin #x="cdkOverlayOrigin" type="button" (click)="isOpen=!isOpen" >Font</button>
+
+<ng-template cdkConnectedOverlay
+ [cdkConnectedOverlayOrigin]="x"
+ [cdkConnectedOverlayOpen]="isOpen"
+ >
+  <div class="font-picker" >
+    <div class="listfont" (click)="selectedFont=item.name;isOpen=false"  *ngFor="let item of fonts" >
+      {{item.name}}
+    </div>
+  </div>
+</ng-template>
